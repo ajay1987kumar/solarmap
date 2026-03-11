@@ -1,0 +1,16 @@
+.text-image {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 20px 0;
+  }
+  .text-image img {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+  }
+  .text-image p {
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
