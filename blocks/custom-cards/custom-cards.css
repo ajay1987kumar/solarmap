@@ -1,0 +1,39 @@
+.custom-card {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    margin: 20px;
+  }
+  
+  .custom-card img {
+    width: 300px;
+    height: auto;
+    display: block;
+  }
+  
+  .custom-card .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: #fff;
+    background: rgba(0,0,0,0.6);
+    padding: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .custom-card .overlay h3 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  .custom-card .overlay p {
+    margin: 0;
+    opacity: 0; /* hidden initially */
+    transition: opacity 0.3s ease;
+  }
+  
+  .custom-card:hover .overlay p {
+    opacity: 1; /* show on hover */
+  }
+  
