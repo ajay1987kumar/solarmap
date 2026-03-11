@@ -1,17 +1,17 @@
-.custom-card {
+.custom-cards {
     position: relative;
     display: inline-block;
     overflow: hidden;
     margin: 20px;
   }
   
-  .custom-card img {
+  .custom-cards img {
     width: 300px;
     height: auto;
     display: block;
   }
   
-  .custom-card .overlay {
+  .custom-cards .overlay {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -22,18 +22,18 @@
     transition: all 0.3s ease;
   }
   
-  .custom-card .overlay h3 {
+  .custom-cards .overlay h3 {
     margin: 0;
     font-size: 1.2rem;
   }
   
-  .custom-card .overlay p {
+  .custom-cards .overlay p {
     margin: 0;
     opacity: 0; /* hidden initially */
     transition: opacity 0.3s ease;
   }
   
-  .custom-card:hover .overlay p {
+  .custom-cards:hover .overlay p {
     opacity: 1; /* show on hover */
   }
   
