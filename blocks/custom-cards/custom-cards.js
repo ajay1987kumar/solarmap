@@ -3,7 +3,7 @@ export default function decorate(block) {
     rows.forEach((row) => {
       const cells = row.querySelectorAll('div');
       const wrapper = document.createElement('div');
-      wrapper.className = 'card';
+      wrapper.className = 'custom-cards';
   
       const img = document.createElement('img');
       img.src = cells[0].textContent.trim();
