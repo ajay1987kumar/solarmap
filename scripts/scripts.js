@@ -42,7 +42,38 @@ async function loadFonts() {
     // do nothing
   }
 }
+async function addFontIcon(){
+  const ul = document.querySelector('.nav-cart-bar');
 
+// Step 2: Get all LI children of that UL
+const liItems = ul.querySelectorAll('li');
+
+// Step 3: Select the second LI (index 1, since it's zero-based)
+const secondLi = liItems[1];
+const thirdLi = liItems[2];
+const fifthLi = liItems[4];
+secondLi.innerHTML="";
+// Step 4: Add an <i> tag inside the second LI
+const icon1 = document.createElement('i');
+icon1.className = 'fa fa-mobile-alt'; 
+const icon2 = document.createElement('i');
+icon2.className = 'fa fa-tablet-alt';
+const icon3 = document.createElement('i');
+icon3.className = 'fa fa-desktop';
+secondLi.appendChild(icon1);
+secondLi.appendChild(icon2);
+secondLi.appendChild(icon3);
+
+const cartIcon = document.createElement('i');
+cartIcon.className = 'fa fa-shopping-cart'; 
+const cartIcon2 = document.createElement('i');
+cartIcon2.className = 'fa fa-shopping-cart'; 
+thirdLi.appendChild(cartIcon);
+fifthLi.innerHTML="";
+fifthLi.appendChild(cartIcon2);
+
+
+}
 /**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
@@ -124,6 +155,7 @@ export function decorateMain(main) {
   decorateSections(main);
   decorateBlocks(main);
   decorateButtons(main);
+  addFontIcon(main);
 }
 
 /**
