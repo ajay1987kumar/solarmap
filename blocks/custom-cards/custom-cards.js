@@ -1,29 +1,18 @@
+import { createOptimizedPicture } from '../../scripts/aem.js';
+
 export default function decorate(block) {
-    const rows = [...block.querySelectorAll('div')];
-    rows.forEach((row) => {
-      const cells = row.querySelectorAll('div');
-      const wrapper = document.createElement('div');
-      wrapper.className = 'custom-cards';
-  
-      const img = document.createElement('img');
-      img.src = cells[0].textContent.trim();
-      img.alt = cells[1].textContent.trim();
-  
-      const overlay = document.createElement('div');
-      overlay.className = 'overlay';
-  
-      const title = document.createElement('h3');
-      title.textContent = cells[1].textContent.trim();
-  
-      const hoverText = document.createElement('p');
-      hoverText.textContent = cells[2].textContent.trim();
-  
-      overlay.appendChild(title);
-      overlay.appendChild(hoverText);
-  
-      wrapper.appendChild(img);
-      wrapper.appendChild(overlay);
-      row.replaceWith(wrapper);
+  /* change to ul, li */
+  const ul = document.createElement('ul');
+  [...block.children].forEach((row) => {
+    const li = document.createElement('li');
+    li.className='li-cards';
+    while (row.firstElementChild) li.append(row.firstElementChild);
+    [...li.children].forEach((div) => {
+      if (div.children.length === 1 && div.querySelector('picture')) div.className = 'custom-cards-card-image';
+      else div.className = 'custom-cards-card-body custom-cards-overlay top';
     });
-  }
-  
+    ul.append(li);
+  });
+  ul.querySelectorAll('picture > img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
+  block.replaceChildren(ul);
+}
